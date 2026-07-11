@@ -265,7 +265,7 @@ const forgotPassword = async (req, res) => {
     const resetLink = `${frontendUrl}/auth/resetpassword?token=${resetToken}`;
 
     await transporter.sendMail({
-      from: "viralajudia123@gmail.com",
+      from: process.env.EMAIL_USER,
       to: email,
       subject: "Password Reset Request",
       text: `

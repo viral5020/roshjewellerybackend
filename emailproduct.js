@@ -48,7 +48,7 @@ router.post('/api/add-product-email', async (req, res) => {
 
     // Prepare email content
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'viralajudia123@gmail.com',
+      from: process.env.EMAIL_USER,
       to: userEmails.join(','),
       subject: 'New Product Available!',
       text: `

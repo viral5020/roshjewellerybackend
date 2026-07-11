@@ -79,7 +79,7 @@ const sendOrderConfirmationEmail = async (orderData) => {
     }
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'krushangrangoonwala@gmail.com',
+      from: process.env.EMAIL_USER,
       to: orderData.email,
       subject: 'Order Confirmation',
       html: `
@@ -184,7 +184,7 @@ const sendNewProductEmail = async (productData, userEmails) => {
     }
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'krushangrangoonwala@gmail.com',
+      from: process.env.EMAIL_USER,
       to: userEmails.join(','),
       subject: 'New Product Available!',
       html: `

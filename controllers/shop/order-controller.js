@@ -41,7 +41,7 @@ const notifyAdminsAboutNewOrder = async (orderDetails) => {
 
     // Prepare email content
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'viralajudia123@gmail.com',
+      from: process.env.EMAIL_USER,
       to: adminUsers.map(admin => admin.email).join(','),
       subject: 'New Order Placed',
       html: `

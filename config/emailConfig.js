@@ -1,8 +1,8 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const userEmail = process.env.EMAIL_USER || "krushangrangoonwala@gmail.com";
-const userPass = process.env.EMAIL_PASSWORD || "kslusctiletzlcfk";
+const userEmail = process.env.EMAIL_USER;
+const userPass = process.env.EMAIL_PASSWORD;
 
 console.log("=== SMTP DEBUG INFO ===");
 console.log("Using Email:", userEmail);
