@@ -9,11 +9,11 @@ router.get('/test-email-config', async (req, res) => {
     // Test SMTP connection
     const verifyResult = await transporter.verify();
     console.log('SMTP verification result:', verifyResult);
-    
+
     // Test sending a simple email
     const testMailOptions = {
-      from: process.env.EMAIL_USER || 'roshfinejewellery@gmail.com',
-      to: 'roshfinejewellery@gmail.com', // Send to the same address for testing
+      from: process.env.EMAIL_USER || 'krushangrangoonwala@gmail.com',
+      to: 'krushangrangoonwala@gmail.com', // Send to the same address for testing
       subject: 'Test Email Configuration',
       text: 'This is a test email to verify the email configuration is working properly.',
       html: '<p>This is a test email to verify the email configuration is working properly.</p>'
@@ -44,7 +44,7 @@ router.get('/test-email-config', async (req, res) => {
       responseCode: error.responseCode,
       response: error.response
     });
-    
+
     res.status(500).json({
       success: false,
       message: 'Email configuration test failed',
@@ -98,9 +98,9 @@ router.post('/add-product-email', async (req, res) => {
       stack: error.stack,
       code: error.code
     });
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to send new product notification email: ' + error.message 
+    res.status(500).json({
+      success: false,
+      message: 'Failed to send new product notification email: ' + error.message
     });
   }
 });
