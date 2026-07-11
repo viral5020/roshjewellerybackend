@@ -12,37 +12,37 @@ const port = 5000;
 // Function to validate email data
 const validateEmailData = (data) => {
   const errors = [];
-  
+
   if (!data.email) {
     errors.push('Email address is required');
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     errors.push('Invalid email format');
   }
-  
+
   if (!data.name || data.name.trim() === '') {
     data.name = 'Customer';
   }
-  
+
   if (!data.orderNumber) {
     errors.push('Order number is required');
   }
-  
+
   if (!data.totalAmount) {
     errors.push('Total amount is required');
   }
-  
+
   if (!data.paymentMethod) {
     errors.push('Payment method is required');
   }
-  
+
   if (!data.orderStatus) {
     errors.push('Order status is required');
   }
-  
+
   if (!data.orderDate) {
     errors.push('Order date is required');
   }
-  
+
   return errors;
 };
 
@@ -53,8 +53,8 @@ const sendOrderConfirmationEmail = async (orderData) => {
     const validationErrors = validateEmailData(orderData);
     if (validationErrors.length > 0) {
       console.error('Email validation errors:', validationErrors);
-      return { 
-        success: false, 
+      return {
+        success: false,
         message: 'Invalid email data: ' + validationErrors.join(', ')
       };
     }
@@ -79,7 +79,7 @@ const sendOrderConfirmationEmail = async (orderData) => {
     }
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'roshfinejewellery@gmail.com',
+      from: process.env.EMAIL_USER || 'krushangrangoonwala@gmail.com',
       to: orderData.email,
       subject: 'Order Confirmation',
       html: `
@@ -159,9 +159,9 @@ const sendOrderConfirmationEmail = async (orderData) => {
         orderNumber: orderData.orderNumber
       }
     });
-    return { 
-      success: false, 
-      message: 'Failed to send order confirmation email: ' + error.message 
+    return {
+      success: false,
+      message: 'Failed to send order confirmation email: ' + error.message
     };
   }
 };
@@ -170,21 +170,21 @@ const sendOrderConfirmationEmail = async (orderData) => {
 const sendNewProductEmail = async (productData, userEmails) => {
   try {
     if (!Array.isArray(userEmails) || userEmails.length === 0) {
-      return { 
-        success: false, 
-        message: 'No valid email addresses provided' 
+      return {
+        success: false,
+        message: 'No valid email addresses provided'
       };
     }
 
     if (!productData || !productData.title || !productData.description || !productData.price) {
-      return { 
-        success: false, 
-        message: 'Invalid product data provided' 
+      return {
+        success: false,
+        message: 'Invalid product data provided'
       };
     }
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'roshfinejewellery@gmail.com',
+      from: process.env.EMAIL_USER || 'krushangrangoonwala@gmail.com',
       to: userEmails.join(','),
       subject: 'New Product Available!',
       html: `
@@ -237,9 +237,9 @@ const sendNewProductEmail = async (productData, userEmails) => {
         title: productData.title
       }
     });
-    return { 
-      success: false, 
-      message: 'Failed to send new product notification email: ' + error.message 
+    return {
+      success: false,
+      message: 'Failed to send new product notification email: ' + error.message
     };
   }
 };
@@ -289,9 +289,9 @@ router.post('/api/add-product-email', async (req, res) => {
       stack: error.stack,
       code: error.code
     });
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to send new product notification email: ' + error.message 
+    res.status(500).json({
+      success: false,
+      message: 'Failed to send new product notification email: ' + error.message
     });
   }
 });
