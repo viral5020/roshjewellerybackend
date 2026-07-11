@@ -21,8 +21,8 @@ const shopOrderRouter = require("./routes/shop/order-routes");
 const shopProductsRouter = require("./routes/shop/products-routes")
 const shopCartRouter = require("./routes/shop/cart-routes");
 const shopAddressRouter = require("./routes/shop/address-routes");
-const shopSearchRouter = require("../server/routes/shop/search-routes");
-const shopReviewRouter = require("../server/routes/shop/review-routes");
+const shopSearchRouter = require("./routes/shop/search-routes");
+const shopReviewRouter = require("./routes/shop/review-routes");
 
 const commonFeatureRouter = require("./routes/common/feature-routes");
 const categoryRoutes = require("./routes/admin/categoryRoutes");
@@ -79,9 +79,7 @@ if (isProd) {
 // Configure CORS
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://roshfinejewellery.com",
-  "https://roshjewellery-1.onrender.com",
-  "https://roshjewellery.onrender.com"
+  "https://roshfinejewellery.com"
 ];
 if (process.env.FRONTEND_URL) {
   allowedOrigins.push(process.env.FRONTEND_URL);

@@ -19,8 +19,8 @@ const validateEmailData = (data) => {
     errors.push('Invalid email format');
   }
   
-  if (!data.name) {
-    errors.push('Name is required');
+  if (!data.name || data.name.trim() === '') {
+    data.name = 'Customer';
   }
   
   if (!data.orderNumber) {
