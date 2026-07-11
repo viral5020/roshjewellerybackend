@@ -1,12 +1,22 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-// Create a single transporter instance
+const userEmail = process.env.EMAIL_USER || "krushangrangoonwala@gmail.com";
+const userPass = process.env.EMAIL_PASSWORD || "kslusctiletzlcfk";
+
+console.log("=== SMTP DEBUG INFO ===");
+console.log("Using Email:", userEmail);
+console.log("Password length:", userPass ? userPass.length : 0);
+console.log("Password starts with:", userPass ? userPass.substring(0, 3) + "***" : "N/A");
+console.log("=======================");
+
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
-    user: "krushangrangoonwala@gmail.com",
-    pass: "kslusctiletzlcfk",
+    user: userEmail,
+    pass: userPass,
   },
   tls: {
     rejectUnauthorized: false
