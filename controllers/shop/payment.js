@@ -6,8 +6,8 @@ const crypto = require('crypto');
 
 // Initialize Razorpay instance
 const razorpay = new Razorpay({
-  key_id: 'rzp_test_GIlOKSWDgEOf6H',
-  key_secret: 'YOUR_RAZORPAY_SECRET_KEY' // Replace with your actual secret key
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET 
 });
 
 // Create Razorpay Order
@@ -48,7 +48,7 @@ const verify = async (req, res) => {
   try {
     // Verify the payment signature
     const generated_signature = crypto
-      .createHmac('sha256', 'YOUR_RAZORPAY_SECRET_KEY')
+      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
       .update(orderId + "|" + paymentId)
       .digest('hex');
 
