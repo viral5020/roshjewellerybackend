@@ -13,7 +13,7 @@ router.get('/test-email-config', async (req, res) => {
     // Test sending a simple email
     const testMailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'krushangrangoonwala@gmail.com', // Send to the same address for testing
+      to: 'roshfinejewellery09@gmail.com', // Send to the same address for testing
       subject: 'Test Email Configuration',
       text: 'This is a test email to verify the email configuration is working properly.',
       html: '<p>This is a test email to verify the email configuration is working properly.</p>'
