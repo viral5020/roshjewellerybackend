@@ -60,7 +60,7 @@ router.post('/api/add-product-email', async (req, res) => {
 
         **Product Name:** ${title}
         **Description:** ${description}
-        **Price:** $${price}
+        **Price:** ₹${price}
 
         This is a limited-time offer, so don't miss out on the chance to grab it while it lasts!
 
@@ -81,7 +81,7 @@ router.post('/api/add-product-email', async (req, res) => {
         <ul>
           <li><strong>Product Name:</strong> ${title}</li>
           <li><strong>Description:</strong> ${description}</li>
-          <li><strong>Price:</strong> $${price}</li>
+          <li><strong>Price:</strong> ₹${price}</li>
         </ul>
 
         <p>This is a limited-time offer, so don't miss out on the chance to grab it while it lasts!</p>

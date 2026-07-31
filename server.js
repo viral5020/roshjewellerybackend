@@ -301,7 +301,7 @@ app.use("/api/email", emailRouter);
 app.use("/api/wishlist", wishlistRoutes);
 app.use("/api", userRoutes);
 app.use("/api/payment", paymentRouter);
-app.use("/api/invoices", invoiceRoutes);
+app.use("/api/admin/invoices", invoiceRoutes);
 app.use("/api/newsletter", newsletterRoutes);
 app.use("/api/subcategories", subCategoryRoutes);
 app.use("/api/transactions", transactionRoutes);

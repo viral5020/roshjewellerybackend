@@ -95,7 +95,7 @@ const sendOrderConfirmationEmail = async (orderData) => {
             <ul style="list-style: none; padding: 0;">
               <li><strong>Order ID:</strong> ${orderData.orderNumber}</li>
               <li><strong>Customer:</strong> ${orderData.name}</li>
-              <li><strong>Total Amount:</strong> $${orderData.totalAmount}</li>
+              <li><strong>Total Amount:</strong> ₹${orderData.totalAmount}</li>
               <li><strong>Payment Method:</strong> ${orderData.paymentMethod}</li>
               <li><strong>Order Status:</strong> ${orderData.orderStatus || 'Confirmed'}</li>
               <li><strong>Order Date:</strong> ${new Date(orderData.orderDate).toLocaleString()}</li>
@@ -198,7 +198,7 @@ const sendNewProductEmail = async (productData, userEmails) => {
             <ul style="list-style: none; padding: 0;">
               <li><strong>Product Name:</strong> ${productData.title}</li>
               <li><strong>Description:</strong> ${productData.description}</li>
-              <li><strong>Price:</strong> $${productData.price}</li>
+              <li><strong>Price:</strong> ₹${productData.price}</li>
               ${productData.category ? `<li><strong>Category:</strong> ${productData.category}</li>` : ''}
               ${productData.brand ? `<li><strong>Brand:</strong> ${productData.brand}</li>` : ''}
             </ul>

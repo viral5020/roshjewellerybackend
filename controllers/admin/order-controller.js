@@ -161,9 +161,36 @@ const getSalesChartData = async (req, res) => {
   }
 };
 
+const deleteOrder = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const order = await Order.findByIdAndDelete(id);
+
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found!",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Order deleted successfully!",
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      success: false,
+      message: "Some error occurred!",
+    });
+  }
+};
+
 module.exports = {
   getAllOrdersOfAllUsers,
   getOrderDetailsForAdmin,
   updateOrderStatus,
   getSalesChartData,
+  deleteOrder,
 };

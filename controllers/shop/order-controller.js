@@ -55,7 +55,7 @@ const notifyAdminsAboutNewOrder = async (orderDetails) => {
             <ul style="list-style: none; padding: 0;">
               <li><strong>Order ID:</strong> ${orderDetails._id}</li>
               <li><strong>Customer:</strong> ${orderDetails.userId}</li>
-              <li><strong>Total Amount:</strong> $${orderDetails.totalAmount}</li>
+              <li><strong>Total Amount:</strong> ₹${orderDetails.totalAmount}</li>
               <li><strong>Payment Method:</strong> ${orderDetails.paymentMethod}</li>
               <li><strong>Order Status:</strong> ${orderDetails.orderStatus}</li>
               <li><strong>Order Date:</strong> ${new Date(orderDetails.orderDate).toLocaleString()}</li>
