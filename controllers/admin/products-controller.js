@@ -36,6 +36,7 @@ const addProduct = async (req, res) => {
       image,
       subImages,
       title,
+      subText,
       description,
       category,    // ID
       subcategory, // ID
@@ -89,6 +90,7 @@ const addProduct = async (req, res) => {
       image,
       subImages: Array.isArray(subImages) ? subImages : [],
       title,
+      subText,
       description,
       category,     // name now
       subcategory,  // name now
@@ -160,6 +162,7 @@ const editProduct = async (req, res) => {
       image,
       subImages,
       title,
+      subText,
       description,
       category,
       subcategory,
@@ -194,6 +197,7 @@ const editProduct = async (req, res) => {
       });
 
     findProduct.title = title || findProduct.title;
+    findProduct.subText = subText !== undefined ? subText : findProduct.subText;
     findProduct.description = description || findProduct.description;
     findProduct.category = category || findProduct.category;
     findProduct.subcategory = subcategory || findProduct.subcategory;
